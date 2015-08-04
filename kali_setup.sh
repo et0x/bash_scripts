@@ -39,5 +39,7 @@ chsh -s /bin/bash $user
 
 git clone https://github.com/longld/peda.git /home/$user/peda
 echo "source /home/$user/peda/peda.py" >> /home/$user/.gdbinit
+chown $user:$user /home/$user/.gdbinit
+chown -R $user:$user /home/$user/peda
 
 echo "[+] All done! Now log out of root, and log back in as your new user!"
