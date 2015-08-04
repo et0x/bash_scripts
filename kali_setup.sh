@@ -31,7 +31,7 @@ read user
 
 while [[ -z "$user" ]]
 do
-	echo -n "\nEnter a non-root user to create: "
+	echo -n "Enter a non-root user to create: "
 	read user
 done
 
