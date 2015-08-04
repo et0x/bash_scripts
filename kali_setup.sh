@@ -10,9 +10,6 @@ apt-get update
 apt-get upgrade -y
 apt-get dist-upgrade -y
 
-git clone https://github.com/longld/peda.git ~/peda
-echo "source ~/peda/peda.py" >> ~/.gdbinit
-
 apt-get install flashplugin-nonfree -y
 update-flashplugin-nonfree --install
 
@@ -39,5 +36,8 @@ useradd -m $user
 passwd $user
 usermod -a -G sudo $user
 chsh -s /bin/bash $user
+
+git clone https://github.com/longld/peda.git /home/$user/peda
+echo "source /home/$user/peda/peda.py" >> /home/$user/.gdbinit
 
 echo "[+] All done! Now log out of root, and log back in as your new user!"
