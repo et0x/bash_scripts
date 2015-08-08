@@ -58,4 +58,7 @@ F=`basename "$Y"`
 mv "$F" sublime.tar.bz2
 tar xvf sublime.tar.bz2
 
+echo "" >> ~/.bashrc
+echo 'alias sublime="sudo ~/Sublime*/sublime_text >/dev/null &"' >> ~/.bashrc
+
 echo "[+] All done! Now log out of root, and log back in as your new user!"
