@@ -42,4 +42,20 @@ echo "source /home/$user/peda/peda.py" >> /home/$user/.gdbinit
 chown $user:$user /home/$user/.gdbinit
 chown -R $user:$user /home/$user/peda
 
+cd ~
+
+X=`uname -m`
+
+if [[ $X == *"64"* ]]
+then
+        Y=`curl -s www.sublimetext.com/2 | grep .bz2 | grep -iv portable| grep 64 | cut -d'"' -f4`
+else
+        Y=`curl -s www.sublimetext.com/2 | grep .bz2 | grep -iv portable| grep 32 | cut -d'"' -f4`
+fi
+
+wget "$Y"
+F=`basename "$Y"`
+mv "$F" sublime.tar.bz2
+tar xvf sublime.tar.bz2
+
 echo "[+] All done! Now log out of root, and log back in as your new user!"
