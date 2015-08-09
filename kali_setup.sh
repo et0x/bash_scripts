@@ -1,4 +1,4 @@
-# curl -s https://raw.githubusercontent.com/et0x/bash_scripts/master/kali_setup.sh | bash
+# wget https://raw.githubusercontent.com/et0x/bash_scripts/master/kali_setup.sh -O setup.sh && chmod 755 setup.sh && ./setup.sh
 
 echo '## Regular repositories' > /etc/apt/sources.list
 echo 'deb http://http.kali.org/kali kali main non-free contrib' >> /etc/apt/sources.list
@@ -41,6 +41,7 @@ chsh -s /bin/bash $user
 
 git clone https://github.com/longld/peda.git /home/$user/peda
 echo "source /home/$user/peda/peda.py" >> /home/$user/.gdbinit
+echo "set follow-fork-mode child" >> /home/$user/.gdbinit
 chown $user:$user /home/$user/.gdbinit
 chown -R $user:$user /home/$user/peda
 
@@ -58,9 +59,10 @@ fi
 wget "$Y"
 F=`basename "$Y"`
 mv "$F" sublime.tar.bz2
-tar xvf sublime.tar.bz2
+tar xvf sublime.tar.bz2 -C /home/$user/
+chown $user:$user /home/$user/Sub*
 
-echo "" >> ~/.bashrc
-echo 'alias sublime="sudo ~/Sublime*/sublime_text >/dev/null &"' >> ~/.bashrc
+echo "" >> /home/$user/.bashrc
+echo 'alias sublime="sudo ~/Sublime*/sublime_text >/dev/null &"' >> /home/$user/.bashrc
 
 echo "[+] All done! Now log out of root, and log back in as your new user!"
