@@ -1,3 +1,5 @@
+# curl -s https://raw.githubusercontent.com/et0x/bash_scripts/master/kali_setup.sh | bash
+
 echo '## Regular repositories' > /etc/apt/sources.list
 echo 'deb http://http.kali.org/kali kali main non-free contrib' >> /etc/apt/sources.list
 echo 'deb http://security.kali.org/kali-security kali/updates main contrib non-free' >> /etc/apt/sources.list
